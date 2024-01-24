@@ -13,6 +13,7 @@ interface Props extends DrawerScreenProps<any,any>{};
 
 export const Pagina1Screen = ({navigation}: Props) => {
 
+
     // Aquí gestionamos el munú lateral pero en esta pg, aunque en la forma en la que la hemos hecho
     // se duplica con el que se implementa por defecto
     useEffect(() =>{
@@ -32,7 +33,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
                 </TouchableOpacity>
             ),
         });
-    }, [])
+    }, []);
 
     return (
         <View style={styles.globalMargin}>

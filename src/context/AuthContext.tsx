@@ -1,4 +1,4 @@
-import react, { Children, createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { authReducer } from "./AuthReducer";
 
 //En la screen de settings consumimos el context
@@ -21,6 +21,9 @@ const authInitialState: AuthState = {
 export interface AuthContextProps {
     authState: AuthState;
     signIn: () => void;
+    logOut: () => void;
+    changeName: (newName: string) => void;
+    changeFavoriteIcon: (iconName: string) => void;
 }
 
 // Creacion del contexto, el cual utilizaremos a la hora de declarar que tipo de contexto vamos a usar
@@ -36,10 +39,25 @@ export const AuthProvider = ({ children } : any) => { // Sin tipado
         dispatch({type: 'signIn'})
     }
 
+    const logOut = () => {
+        dispatch({type: 'logOut'})
+    }
+
+    const changeName = (newName: string) => {
+        dispatch({type: 'changeName', payload: newName})
+    }
+
+    const changeFavoriteIcon = (iconName: string) => {
+        dispatch({type: 'changeFavIcon', payload: iconName})
+    }
+
     return (
         <AuthContext.Provider value={{
             authState,
             signIn,
+            logOut,
+            changeName,
+            changeFavoriteIcon
         }}>
             { children}
         </AuthContext.Provider>

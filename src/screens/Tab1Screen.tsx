@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { TouchableIcon } from '../components/TouchableIcon';
 
 export const Tab1Screen = () => {
 
@@ -18,14 +18,16 @@ export const Tab1Screen = () => {
                 Icons
             </Text>
 
-            <Icon name="airplane-outline" size={80} color="#900" />
-            <Icon name="bandage-outline" size={80} color="#900" />
-            <Icon name="calendar-number-outline" size={80} color="#900" />
-            <Icon name="aperture" size={80} color="#900" />
-            <Icon name="aperture" size={80} color="#900" />
-            <Icon name="finger-print-sharp" size={80} color="#900" />
-            <Icon name="images-sharp" size={80} color="#900" />
-            <Icon name="language-sharp" size={80} color="#900" />
+            <Text>                        
+                <TouchableIcon iconName="airplane-outline"/>
+                <TouchableIcon iconName="bandage-outline"/>
+                <TouchableIcon iconName="calendar-number-outline"/>
+                <TouchableIcon iconName="aperture"/>
+                <TouchableIcon iconName="aperture"/>
+                <TouchableIcon iconName="finger-print-sharp"/>
+                <TouchableIcon iconName="images-sharp"/>
+                <TouchableIcon iconName="language-sharp"/>
+            </Text>
 
         </View>
     )

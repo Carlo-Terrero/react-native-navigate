@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer';
 import { SettingsScreen } from '../screens/SettingsScreen';
-import { StackNavigator } from './StackNavigator';
-import { Image, Text, View, ViewBase, useWindowDimensions } from 'react-native';
+// import { StackNavigator } from './StackNavigator';
+import { Image, Text, View, useWindowDimensions } from 'react-native';
 // import DrawerContentScrollView
-import DrawerContent from '@react-navigation/drawer';
-import { colores, styles } from '../theme/appTheme';
+// import DrawerContent from '@react-navigation/drawer';
+import { styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Tabs } from './Tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { AuthContext } from '../context/AuthContext';
 
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
 
     const { width } = useWindowDimensions();
+    const {authState} = useContext(AuthContext);
 
     const MenuInterno = ({navigation}: DrawerContentComponentProps) => {
 
@@ -41,6 +43,10 @@ export const MenuLateral = () => {
                 <View
                     style={styles.menuContainer}
                 >
+                    {
+                        authState.userName && <Text style={styles.title}>{authState.userName}</Text>
+                    }
+
                     <TouchableOpacity style={{
                         ...styles.menuBoton,
                         flexDirection: 'row',
